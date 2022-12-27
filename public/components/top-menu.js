@@ -19,7 +19,7 @@ export class TopMenu extends LitElement {
     .button {
       cursor: pointer;
       flex-grow: 1;
-      min-width: 0;
+      min-width: 110px;
       text-align: center;
       margin: auto 5px;
       font-family: "Catamaran", sans-serif;
@@ -74,13 +74,35 @@ export class TopMenu extends LitElement {
       height: 30px;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
       margin: 3px;
       cursor: pointer;
     }
     .hamburger-line {
-      height: 4px;
+      height: 2px;
       background-color: white;
+      margin: 7px 0;
+      position: relative;
+      transition: all 0.25s ease-out;
+    }
+    .hamburger-line:nth-child(1) {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+    .hamburger-line:nth-child(3) {
+      margin-top: 0;
+      margin-bottom: auto;
+    }
+    .hamburger-line.close-button:nth-child(1) {
+      transform: rotate(45deg);
+      top: 2px;
+    }
+    .hamburger-line.close-button:nth-child(2) {
+      background: transparent;
+      margin: 0 0;
+    }
+    .hamburger-line.close-button:nth-child(3) {
+      transform: rotate(-45deg);
+      top: -1px;
     }
     @media only screen and (max-width: 1200px) {
       .button {
@@ -131,8 +153,18 @@ export class TopMenu extends LitElement {
     container.appendChild(content);
   }
 
-  toggleSideMenu(){
-    document.querySelector('#sideMenu').toggle();
+  toggleSideMenu() {
+    document.querySelector("#sideMenu").toggle();
+    const hamburgerLines = this.shadowRoot.querySelectorAll(".hamburger-line");
+    if (document.querySelector("#sideMenu").getState()) {
+      hamburgerLines.forEach((element) => {
+        element.classList.add("close-button");
+      });
+    } else {
+      hamburgerLines.forEach((element) => {
+        element.classList.remove("close-button");
+      });
+    }
   }
 
   render() {

@@ -12,6 +12,8 @@ export class SideMenu extends LitElement {
       background-color: var(--main-gray);
       margin-top: var(--top-menu-height);
       overflow: hidden;
+      transition: all 0.25s ease-out 0.1s;
+      position: relative;
     }
     .side-menu > div {
       height: 100%;
@@ -48,11 +50,14 @@ export class SideMenu extends LitElement {
       width: 60%;
       left: 20%;
     }
+    .open {
+      width: 250px;
+    }
   `;
 
   constructor() {
     super();
-    this.open=false;
+    this.open = false;
   }
 
   goPage(page) {
@@ -84,14 +89,25 @@ export class SideMenu extends LitElement {
     container.appendChild(content);
   }
 
-  toggle(){
-    this.open= !this.open;
+  toggle() {
+    this.open = !this.open;
     this.requestUpdate();
+
+    const element = this.shadowRoot.querySelector(".side-menu");
+    if (this.open) {
+      element.classList.add("open");
+      return false
+    }
+    element.classList.remove("open");
+  }
+
+  getState(){
+    return this.open;
   }
 
   render() {
     return html`
-      <div class="side-menu" style="width:${this.open ? '250px' : '0px'}">
+      <div class="side-menu">
         <div>
           <div class="button-container">
             <div @click=${() => this.goPage("import")} class="button">
