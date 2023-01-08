@@ -1,0 +1,48 @@
+.home-background {
+    background-image: url('./assets/home_background.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.contact-button {
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    background-color: var(--main-red);
+    user-select: none;
+    width: fit-content;
+}
+
+.contact-button>* {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    font-weight: bold;
+}
+
+.contact-button>*:first-child {
+    margin-right: 15px;
+}
+
+.home-sections-layout {
+    width: 100%;
+    padding: 0 30px;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.home-sections-layout> section-button {
+    margin-right: 20px;
+    width: 30%;
+}
+
+.home-sections-layout> section-button:last-child {
+    margin-right: 0px;
+}
+.home-sections-layout> :nth-child(-n+6) {
+    margin-top: 30px;
+}

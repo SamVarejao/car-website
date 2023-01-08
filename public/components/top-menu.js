@@ -4,7 +4,28 @@ import {
   html,
 } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
 
+import { goPage } from "./commons.js";
+
 export class TopMenu extends LitElement {
+
+  constructor() {
+    super();
+  }
+
+  toggleSideMenu() {
+    document.querySelector("#sideMenu").toggle();
+    const hamburgerLines = this.shadowRoot.querySelectorAll(".hamburger-line");
+    if (document.querySelector("#sideMenu").getState()) {
+      hamburgerLines.forEach((element) => {
+        element.classList.add("close-button");
+      });
+    } else {
+      hamburgerLines.forEach((element) => {
+        element.classList.remove("close-button");
+      });
+    }
+  }
+
   static styles = css`
     .top-menu {
       height: 56px;
@@ -19,13 +40,9 @@ export class TopMenu extends LitElement {
     .button {
       cursor: pointer;
       flex-grow: 1;
-      min-width: 110px;
+      width: 110px;
       text-align: center;
       margin: auto 5px;
-      font-family: "Catamaran", sans-serif;
-      font-size: 16px;
-      letter-spacing: 0;
-      font-weight: bold;
       color: #fff;
       text-shadow: 2px 2px #000000;
       position: relative;
@@ -49,6 +66,8 @@ export class TopMenu extends LitElement {
       width: 100%;
       height: var(--top-menu-height);
       position: absolute;
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8130602582830007) 80%, rgba(0,0,0,0.6253851882549895) 90%, rgb(0 0 0 / 55%) 100%);
     }
     .icon {
       height: 330%;
@@ -118,55 +137,6 @@ export class TopMenu extends LitElement {
     }
   `;
 
-  constructor() {
-    super();
-    // Declare reactive properties
-    this.name = "World";
-  }
-
-  goPage(page) {
-    const self = this;
-    let route = page ? page : "home";
-
-    fetch(`/${route}`)
-      .then(function (res) {
-        return res.text();
-      })
-      .then(function (res) {
-        self.appendContent(res);
-      })
-      .catch(function (err) {
-        console.warn("Something went wrong.", err);
-      });
-  }
-
-  appendContent(html) {
-    try {
-      document.querySelector("#content").remove();
-    } catch (err) {}
-
-    const container = document.querySelector("#content-container");
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(html, "text/html");
-    let content = doc.querySelector("#content");
-
-    container.appendChild(content);
-  }
-
-  toggleSideMenu() {
-    document.querySelector("#sideMenu").toggle();
-    const hamburgerLines = this.shadowRoot.querySelectorAll(".hamburger-line");
-    if (document.querySelector("#sideMenu").getState()) {
-      hamburgerLines.forEach((element) => {
-        element.classList.add("close-button");
-      });
-    } else {
-      hamburgerLines.forEach((element) => {
-        element.classList.remove("close-button");
-      });
-    }
-  }
-
   render() {
     return html`
       <div class="container">
@@ -178,29 +148,29 @@ export class TopMenu extends LitElement {
               <div class="hamburger-line"></div>
             </div>
           </div>
-          <div @click=${() => this.goPage("import")} class="button">
+          <p @click=${() => goPage("import")} class="button">
             Importação
-          </div>
-          <div @click=${() => this.goPage("restoration")} class="button">
+          </p>
+          <p @click=${() => goPage("restoration")} class="button">
             Restauração
-          </div>
-          <div @click=${() => this.goPage("maintenance")} class="button">
+          </p>
+          <p @click=${() => goPage("maintenance")} class="button">
             Manutenção
-          </div>
+          </p>
           <img
-            @click=${() => this.goPage("home")}
+            @click=${() => goPage("home")}
             class="icon"
             src="./../style/assets/logo-03-motors-v8.png"
           />
-          <div @click=${() => this.goPage("achievement")} class="button">
+          <p @click=${() => goPage("achievement")} class="button">
             Conquistas
-          </div>
-          <div @click=${() => this.goPage("advertisement")} class="button">
+          </p>
+          <p @click=${() => goPage("advertisement")} class="button">
             Stock
-          </div>
-          <div @click=${() => this.goPage("contact")} class="button">
+          </p>
+          <p @click=${() => goPage("contact")} class="button">
             Contacto
-          </div>
+          </p>
         </header>
       </div>
     `;

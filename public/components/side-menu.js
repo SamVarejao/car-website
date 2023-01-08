@@ -4,12 +4,36 @@ import {
   html,
 } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
 
+import { goPage } from "./commons.js";
+
 export class SideMenu extends LitElement {
+
+  constructor() {
+    super();
+    this.open = false;
+  }
+
+  toggle() {
+    this.open = !this.open;
+    this.requestUpdate();
+
+    const element = this.shadowRoot.querySelector(".side-menu");
+    if (this.open) {
+      element.classList.add("open");
+      return false
+    }
+    element.classList.remove("open");
+  }
+
+  getState(){
+    return this.open;
+  }
+
   static styles = css`
     .side-menu {
       height: 100%;
       width: 0px;
-      background-color: var(--main-gray);
+      background-color: #212121e6;
       margin-top: var(--top-menu-height);
       overflow: hidden;
       transition: all 0.25s ease-out 0.1s;
@@ -27,7 +51,7 @@ export class SideMenu extends LitElement {
     }
     .button {
       position: relative;
-      font-family: "Catamaran", sans-serif;
+      font-family: 'Open Sans', sans-serif;
       text-align: center;
       font-size: 16px;
       letter-spacing: 0;
@@ -55,77 +79,27 @@ export class SideMenu extends LitElement {
     }
   `;
 
-  constructor() {
-    super();
-    this.open = false;
-  }
-
-  goPage(page) {
-    const self = this;
-    let route = page ? page : "home";
-
-    fetch(`/${route}`)
-      .then(function (res) {
-        return res.text();
-      })
-      .then(function (res) {
-        self.appendContent(res);
-      })
-      .catch(function (err) {
-        console.warn("Something went wrong.", err);
-      });
-  }
-
-  appendContent(html) {
-    try {
-      document.querySelector("#content").remove();
-    } catch (err) {}
-
-    const container = document.querySelector("#content-container");
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(html, "text/html");
-    let content = doc.querySelector("#content");
-
-    container.appendChild(content);
-  }
-
-  toggle() {
-    this.open = !this.open;
-    this.requestUpdate();
-
-    const element = this.shadowRoot.querySelector(".side-menu");
-    if (this.open) {
-      element.classList.add("open");
-      return false
-    }
-    element.classList.remove("open");
-  }
-
-  getState(){
-    return this.open;
-  }
-
   render() {
     return html`
       <div class="side-menu">
         <div>
           <div class="button-container">
-            <div @click=${() => this.goPage("import")} class="button">
+            <div @click=${() => goPage("import")} class="button">
               Importação
             </div>
-            <div @click=${() => this.goPage("restoration")} class="button">
+            <div @click=${() => goPage("restoration")} class="button">
               Restauração
             </div>
-            <div @click=${() => this.goPage("maintenance")} class="button">
+            <div @click=${() => goPage("maintenance")} class="button">
               Manutenção
             </div>
-            <div @click=${() => this.goPage("achievement")} class="button">
+            <div @click=${() => goPage("achievement")} class="button">
               Conquistas
             </div>
-            <div @click=${() => this.goPage("advertisement")} class="button">
+            <div @click=${() => goPage("advertisement")} class="button">
               Stock
             </div>
-            <div @click=${() => this.goPage("contact")} class="button">
+            <div @click=${() => goPage("contact")} class="button">
               Contacto
             </div>
           </div>
