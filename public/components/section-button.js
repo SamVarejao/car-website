@@ -4,13 +4,13 @@ import {
   html,
 } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
 
-
 import { goPage } from "./commons.js";
 
 export class SectionButton extends LitElement {
   static properties = {
     page: {},
     label: {},
+    class: { type: String },
   };
 
   constructor() {
@@ -30,11 +30,14 @@ export class SectionButton extends LitElement {
       margin-bottom: 30px;
       cursor: pointer;
     }
+    .holder:hover img{
+      filter: saturate(0);
+      transform: scale(1.1, 1.1);
+    }
     .image-holder {
       width: 100%;
       position: relative;
       padding-top: 62.5%; /* Aspect Ratio */
-      background-color: red;
     }
     .image-holder > div {
       position: absolute;
@@ -44,10 +47,14 @@ export class SectionButton extends LitElement {
       right: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden;
     }
     img {
       width: 100%;
       height: 100%;
+      filter: saturate(1);
+      transition: all 0.5s;
+      transition-property: filter, transform;
     }
     .label-container {
       height: 50px;
@@ -75,12 +82,12 @@ export class SectionButton extends LitElement {
       width: 45px;
       margin-right: 0;
       margin-left: auto;
+      display: flex;
     }
   `;
 
   render() {
     return html`
-    <script src="https://kit.fontawesome.com/5cf1fecdeb.js" crossorigin="anonymous"></script>
       <div class="holder">
         <div class="image-holder" @click=${() => goPage(this.page)}>
           <div>
@@ -88,7 +95,9 @@ export class SectionButton extends LitElement {
           </div>
         </div>
         <div class="label-container">
-          <div class="icon-holder"><i class="fa fa-angle-right"></i></div>
+          <div class="icon-holder">
+            <slot name="icon"></slot>
+          </div>
           <div class="label">
             <p>${this.label}</p>
           </div>

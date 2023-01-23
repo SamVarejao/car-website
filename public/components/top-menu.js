@@ -63,7 +63,8 @@ export class TopMenu extends LitElement {
     }
     .container {
       display: flex;
-      width: 100%;
+      width: 100vw;
+      z-index: 1;
       height: var(--top-menu-height);
       position: absolute;
       background: rgb(0,0,0);

@@ -35,4 +35,8 @@ router.get("/restoration", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "views", "restoration.html"));
 });
 
+router.get("/bottomBar", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "views", "bottomBar.html"));
+});
+
 module.exports = router;

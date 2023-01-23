@@ -38,6 +38,7 @@ export class SideMenu extends LitElement {
       overflow: hidden;
       transition: all 0.25s ease-out 0.1s;
       position: relative;
+      z-index: 1;
     }
     .side-menu > div {
       height: 100%;
