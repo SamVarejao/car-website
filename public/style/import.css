@@ -1,0 +1,114 @@
+.import-background {
+    background-size: cover;
+    background-image: url('./assets/import/background_import.jpg');
+    background-position: center;
+    width: 100%;
+    height: 450px;
+}
+
+.import-background-2 {
+    background-image: url('./assets/import/import_background_2.jpg');
+    background-size: cover;
+    width: 100%;
+    box-sizing: border-box;
+    height: 400px;
+}
+
+.image-black-car {
+    background-image: url('./assets/import/01.jpg');
+    background-size: cover;
+    width: 100%;
+}
+
+.image-motocycle {
+    background-image: url('./assets/import/02.jpg');
+    background-size: cover;
+    width: 100%;
+}
+
+.image-black-car-2 {
+    background-image: url('./assets/import/03.jpg');
+    background-size: cover;
+    width: 100%;
+}
+
+.image-muscle-car {
+    background-image: url('./assets/import/04.jpg');
+    background-size: cover;
+    width: 100%;
+}
+
+.car-lineup {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.car-lineup>div {
+    background-color: red;
+    flex-grow: 1;
+    margin-right: 20px;
+    max-width: 250px;
+    height: 175px;
+    position: relative;
+}
+
+.car-lineup>div:first-child {
+    margin-left: auto;
+}
+
+.car-lineup>div:last-child {
+    margin-right: auto;
+}
+
+.car-lineup>div>div {
+    background-color: black;
+    transform: skew(var(--angle));
+    width: 150px;
+    height: 30px;
+    display: flex;
+    position: relative;
+    top: -15px;
+}
+
+.car-lineup>div>div>p {
+    transform: skew(var(--angle-offset));
+    margin: auto;
+    color: white;
+    font-weight: lighter;
+}
+
+.perks-lineup {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 30px;
+}
+
+.perks-lineup>div {
+    border: 4px solid var(--main-red);
+    width: 251px;
+    margin-right: 20px;
+    height: 107px;
+    position: relative;
+    padding: 30px 20px 20px 20px;
+    z-index: 1;
+}
+.perks-lineup>div>.icon {
+    color: var(--main-red);
+    position: absolute;
+    font-size: 50px;
+    top: -35px;
+    left: 40%;
+    z-index: 1;
+    background: white;
+    width: 60px;
+    border-radius: 50%;
+}
+.perks-lineup>div:first-child {
+    margin-left: auto;
+}
+
+.perks-lineup>div:last-child {
+    margin-right: auto;
+}

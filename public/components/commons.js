@@ -20,7 +20,6 @@ export function goPage(page) {
 }
 function _appendContent(html, isContent) {
   if (isContent) {
-    console.log(1);
     try {
       document.querySelector("#content").remove();
     } catch (err) {}
@@ -32,7 +31,6 @@ function _appendContent(html, isContent) {
   
     container.appendChild(content);
   } else {
-    console.log(2);
     const container = document.querySelector("#bottomBar");
     var parser = new DOMParser();
     var doc = parser.parseFromString(html, "text/html");
