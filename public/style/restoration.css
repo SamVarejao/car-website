@@ -1,0 +1,62 @@
+.restoration-services {
+    background-image: url('./assets/import_background_2.jpg');
+    background-size: cover;
+    width: 100%;
+    box-sizing: border-box;
+    height: 400px;
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+}
+.restoration-services > .content{
+    margin: auto;
+}
+.restoration-services>.label {
+    height: 60px;
+    width: 280px;
+    position: absolute;
+    top: -30px;
+    left: 5%;
+}
+.restoration-services > .content {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   box-sizing: border-box;
+   padding: 0 50px;
+}
+.content > .text {
+    width: 66%;
+    margin-right: 20px;
+ }
+.content > .pictures{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(2, 150px);
+    grid-gap: 30px;
+    height: fit-content;
+ }
+ .content > .pictures > div{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 5px 0.05em rgb(255 255 255 / 50%);
+    background-size: cover;
+ }
+ .picture-1-1{
+    background-image: url('./assets/restoration/1_1.jpg')
+ }
+ .picture-1-2{
+    background-image: url('./assets/restoration/1_2.jpg')
+ }
+ .picture-1-3{
+    background-image: url('./assets/restoration/1_3.jpg')
+ }
+ .picture-1-4{
+    background-image: url('./assets/restoration/1_4.jpg')
+ }
+ .picture-1-5{
+    background-image: url('./assets/restoration/1_5.jpg')
+ }
+ .picture-1-6{
+    background-image: url('./assets/restoration/1_6.jpg')
+ }

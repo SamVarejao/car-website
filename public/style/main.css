@@ -6,7 +6,7 @@
     --angle: -26deg;
     --angle-offset: 26deg;
     font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 html {
@@ -62,6 +62,8 @@ i {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 0;
 }
 
 .side-menu-holder {
@@ -89,9 +91,13 @@ i {
     display: flex;
     position: relative;
     padding: 30px;
-    box-sizing: border;
     transform: skew(var(--angle));
+    min-height: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
 }
+
 .sub-header-box>div:nth-child(2) {
     width: 5px;
     background-color: white;
@@ -100,14 +106,55 @@ i {
     box-sizing: border-box;
     padding: 0 50px;
     font-size: 1.2em;
+    display: flex;
 }
+
 .sub-header-box>div:nth-child(2)>p {
     font-size: 1.2em;
+    margin: auto;
 }
+
 .sub-header-box>div:first-child,
 .sub-header-box>div:last-child {
     width: 5px;
     background-color: var(--main-red);
+}
+
+.perks-lineup {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 30px;
+}
+
+.perks-lineup>div {
+    border: 4px solid var(--main-red);
+    width: 251px;
+    margin-right: 20px;
+    height: 107px;
+    position: relative;
+    padding: 30px 20px 20px 20px;
+    z-index: 1;
+}
+
+.perks-lineup>div:first-child {
+    margin-left: auto;
+}
+
+.perks-lineup>div:last-child {
+    margin-right: auto;
+}
+
+.perks-lineup>div>.icon {
+    color: var(--main-red);
+    position: absolute;
+    font-size: 50px;
+    top: -35px;
+    left: 40%;
+    z-index: 1;
+    background: white;
+    width: 60px;
+    border-radius: 50%;
 }
 
 /*//////////*/
@@ -219,7 +266,8 @@ p {
 i.large {
     font-size: 4em;
 }
-p.large{
+
+p.large {
     font-size: 1.5em;
 }
 
@@ -230,7 +278,8 @@ i.medium {
 i.small {
     font-size: 1em;
 }
-span.small{
+
+span.small {
     font-size: 0.8em;
     font-weight: lighter;
 }
@@ -239,9 +288,13 @@ p.small {
     font-size: 1em;
 }
 
+.light {
+    font-weight: lighter;
+}
+
 .main-padding {
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 50px;
+    padding-left: 50px;
 }
 
 .main-padding>.skew {
@@ -260,15 +313,19 @@ p.small {
 .margin-auto {
     margin: auto;
 }
-.margin-top-10{
+
+.margin-top-10 {
     margin-top: 10px;
 }
-.margin-top-20{
+
+.margin-top-20 {
     margin-top: 20px;
 }
-.margin-top-30{
+
+.margin-top-30 {
     margin-top: 30px;
 }
+
 .margin-top-50 {
     margin-top: 50px;
 }
@@ -276,12 +333,15 @@ p.small {
 .margin-top-60 {
     margin-top: 60px;
 }
-.margin-right-20{
-    margin-right: 20px;
+
+.margin-right-20 {
+    margin-right: auto;
 }
-.margin-left-20{
-    margin-left: 20px;
+
+.margin-left-20 {
+    margin-left: auto;
 }
+
 .padding-right-5 {
     padding-right: 5px;
 }
@@ -304,58 +364,28 @@ p.small {
 .overflow-hidden {
     overflow: hidden;
 }
-
+/*//////////*/
 .vertical-auto {
     overflow-x: hidden;
     overflow-y: auto;
 }
-
-/*//////////*/
-
-/*BOTTOM_BAR*/
-.bottom-bar {
-    height: 300px;
-    display: flex;
+/*IMAGES*/
+.gear-background {
+    background-image: url('./assets/import_background_2.jpg');
+    background-size: cover;
     width: 100%;
-    background: url("https://www.motorsv8.com/assets/public/img/bg-damier.jpg") repeat-x top center rgba(0, 0, 0, 1);
-    justify-content: space-between;
-    padding: 20px 50px;
     box-sizing: border-box;
+    height: 400px;
 }
 
-.footer-item {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-}
-
-.footer-text-container {
+.header-background {
+    background-size: cover;
+    background-image: url('./assets/background_import.jpg');
+    background-position: center;
     width: 100%;
-    margin-top: 10px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    box-sizing: border-box;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    height: 450px;
 }
-
-.footer-row {
-    display: flex;
-    margin-top: 10px;
-}
-
-.footer-row>*:first-child {
-    margin-right: 10px;
-}
-
-.footer-row>* {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
 /*//////////*/
-
 @media only screen and (max-width: 1200px) {
     .side-menu-holder {
         display: block;

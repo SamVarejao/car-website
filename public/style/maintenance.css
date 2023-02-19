@@ -1,0 +1,82 @@
+.icon-container {
+    background-color: var(--main-red);
+    position: absolute;
+    font-size: 50px;
+    top: -35px;
+    left: 40%;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.icon-container>div {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(99deg) brightness(102%) contrast(101%);
+    background-position: center;
+}
+.icon-transmission {
+    background-image: url('./assets/maintenence/manual-transmission-icon.svg');
+    background-size: 28px;
+}
+.icon-tire {
+    background-image: url('./assets/maintenence/wheel-icon.svg');
+    background-size: 38px;
+}
+.icon-repair {
+    background-image: url('./assets/maintenence/repair-service-icon.svg');
+    background-size: 35px;
+}
+.brands-lineup {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 30px;
+    margin: 30px auto 0 auto;
+    width: 80%;
+    height: 300px;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+.brands-lineup > div {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.icon-mercedes {
+    background-image: url('./assets/maintenence/614px-Mercedes_Benz_logo_2011.png');
+}
+.icon-buick {
+    background-image: url('./assets/maintenence/Buick-Logo.png');
+}
+.icon-chevrolet {
+    background-image: url('./assets/maintenence/Chevrolet-Logo-2010.png');
+}
+.icon-chrysler {
+    background-image: url('./assets/maintenence/Chrysler-Logo-1990.png');
+}
+.icon-dodge {
+    background-image: url('./assets/maintenence/Dodge-Ram-Logo.jpg');
+}
+.icon-ferrari {
+    background-image: url('./assets/maintenence/Ferrari-Logo.png');
+}
+.icon-harley {
+    background-image: url('./assets/maintenence/Harley-Davidson.png');
+}
+.icon-amc {
+    background-image: url('./assets/maintenence/logo-AMC.png');
+}
+.icon-cadillac {
+    background-image: url('./assets/maintenence/logo-Cadillac.png');
+}
+.icon-corvette {
+    background-image: url('./assets/maintenence/logo-Corvette.png');
+}
+.icon-ford {
+    background-image: url('./assets/maintenence/logo-Ford.png');
+}
+.icon-pontiac {
+    background-image: url('./assets/maintenence/sigle-Pontiac.jpg');
+}
