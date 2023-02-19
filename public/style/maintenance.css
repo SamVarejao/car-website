@@ -1,3 +1,7 @@
+.maintenence-background{
+    background-image: url('./assets/maintenence/bg-maintenence.jpg');
+    filter: grayscale(1);
+}
 .icon-container {
     background-color: var(--main-red);
     position: absolute;
