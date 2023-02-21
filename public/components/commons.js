@@ -4,6 +4,8 @@ export function test() {
 export function goPage(page) {
   let route = page ? page : "home";
 
+  console.log(page)
+
   fetch(`/${route}`)
     .then(function (res) {
       return res.text();

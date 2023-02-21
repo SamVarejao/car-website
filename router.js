@@ -1,3 +1,4 @@
+const sendEmail = require("./src/mailer");
 const { Router } = require("express");
 const path = require("path");
 
@@ -37,6 +38,11 @@ router.get("/restoration", (req, res) => {
 
 router.get("/bottomBar", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "views", "bottomBar.html"));
+});
+
+router.post("/sendMessage", (req, res) => {
+  sendEmail();
+  res.status(200).send("Mensagem enviada");
 });
 
 module.exports = router;

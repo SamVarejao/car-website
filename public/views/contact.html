@@ -1,3 +1,78 @@
-<div id="content" class="my-div">
-  <h1>Contact page</h1>
+<div id="content">
+  <link rel="stylesheet" href="../style/contact.css" />
+  <div class="grow vertical-auto">
+    <section>
+      <div class="header-background content-center">
+        <h2 class="white">CONTACTOS E LOCALIZAÇÃO</h2>
+      </div>
+      <div class="form-layout main-padding margin-top-50">
+        <form id="contactForm">
+          <h2 class="gray">FORMULÁRIO DE CONTATO</h2>
+
+          <div class="grouping flex">
+            <div>
+              <label for="firstName" class="gray">Primeiro nome</label><br />
+              <input
+                class="formItem"
+                type="text"
+                name="firstName"
+                required
+                onfocus="labelAnimation(this, true)"
+                onfocusout="labelAnimation(this)"
+              />
+            </div>
+            <div>
+              <label for="lastName" class="gray">Último nome</label><br />
+              <input
+                class="formItem"
+                type="text"
+                name="lastName"
+                required
+                onfocus="labelAnimation(this, true)"
+                onfocusout="labelAnimation(this)"
+              />
+            </div>
+          </div>
+          <div class="grouping">
+            <label for="email" class="gray">E-mail</label><br />
+            <input
+              class="formItem"
+              type="email"
+              name="email"
+              required
+              onfocus="labelAnimation(this, true)"
+              onfocusout="labelAnimation(this)"
+            />
+          </div>
+          <div class="grouping">
+            <label for="phone" class="gray">Telemóvel</label><br />
+            <input
+              class="formItem"
+              type="number"
+              name="phone"
+              required
+              pattern="[1-9]{1,9}"
+              onfocus="labelAnimation(this, true)"
+              onfocusout="labelAnimation(this)"
+            />
+          </div>
+          <div class="grouping">
+             <label for="message" class="gray">Mensagem</label><br />
+            <textarea
+              class="formItem"
+              name="message"
+              required
+              onfocus="labelAnimation(this, true)"
+              onfocusout="labelAnimation(this)"
+            ></textarea>
+          </div>
+
+          <input type="button" value="Enviar" onclick="sendMessage()" />
+        </form>
+
+        <div></div>
+      </div>
+    </section>
+    <div id="bottomBar"></div>
+  </div>
 </div>

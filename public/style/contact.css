@@ -1,0 +1,114 @@
+.form-layout {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 30px;
+}
+
+.form-layout input[type=text],
+input[type=number],
+input[type=email],
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    height: 40px;
+    padding: 5px;
+    color: #515151;
+    border: 2px solid #dddddd;
+    border-radius: 0;
+    background-color: #ffadad00;
+}
+
+.form-layout input[type=button] {
+    height: 40px;
+    width: 100px;
+    background-color: var(--main-red);
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.form-layout textarea {
+    resize: none;
+    height: 130px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input,
+textarea:focus {
+    outline: none;
+}
+
+.form-layout>div,
+form {
+    width: 50%;
+}
+
+.form-layout .grouping {
+    margin-top: 10px;
+}
+
+.form-layout input[type=button] {
+    margin-top: 20px;
+}
+
+.form-layout .grouping:last-child {
+    margin-top: 0px;
+}
+
+.form-layout .grouping.flex {
+    gap: 20px;
+}
+
+.form-layout .grouping.flex>div {
+    width: 50%;
+}
+
+.form-layout label {
+    position: relative;
+    top: 30px;
+    font-size: 1em;
+    margin-left: 5px;
+    z-index: -1;
+}
+
+.top-label {
+    top: 0px !important;
+    font-size: 0.9em !important;
+    color: var(--main-red) !important;
+}
+
+@keyframes labelUpKF {
+    from {
+        top: 30px;
+        font-size: 1em;
+    }
+
+    to {
+        top: 0px;
+        font-size: 0.9em;
+        color: var(--main-red)
+    }
+}
+
+@keyframes labelDownKF {
+    from {
+        top: 0px;
+        font-size: 0.9em;
+        color: var(--main-red);
+    }
+
+    to {
+        top: 30px;
+        font-size: 1em;
+        color: var(--main-gray);
+    }
+}
