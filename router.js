@@ -1,5 +1,5 @@
-const sendEmail = require("./src/mailer");
 const { Router } = require("express");
+const mailer = require("./src/mailer");
 const path = require("path");
 
 const router = Router();
@@ -41,8 +41,9 @@ router.get("/bottomBar", (req, res) => {
 });
 
 router.post("/sendMessage", (req, res) => {
-  sendEmail();
-  res.status(200).send("Mensagem enviada");
+  mailer
+    .sendContactRequest(...Object.values(req.body))
+    .then((data) => res.status(data.code).send(data.message));
 });
 
 module.exports = router;

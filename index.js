@@ -2,11 +2,13 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 const router = require("./router");
+const bodyParser = require('body-parser');
 const PORT = 3001;
 const path = require("path");
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "public")));
 
