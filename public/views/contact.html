@@ -12,37 +12,16 @@
           <div class="grouping flex">
             <div>
               <label for="firstName" class="gray">Primeiro nome</label><br />
-              <input
-                class="formItem"
-                type="text"
-                name="firstName"
-                required
-                onfocus="labelAnimation(this, true)"
-                onfocusout="labelAnimation(this)"
-              />
+              <input class="formItem" type="text" name="firstName"  />
             </div>
             <div>
               <label for="lastName" class="gray">Último nome</label><br />
-              <input
-                class="formItem"
-                type="text"
-                name="lastName"
-                required
-                onfocus="labelAnimation(this, true)"
-                onfocusout="labelAnimation(this)"
-              />
+              <input class="formItem" type="text" name="lastName"  />
             </div>
           </div>
           <div class="grouping">
             <label for="email" class="gray">E-mail</label><br />
-            <input
-              class="formItem"
-              type="email"
-              name="email"
-              required
-              onfocus="labelAnimation(this, true)"
-              onfocusout="labelAnimation(this)"
-            />
+            <input class="formItem" type="email" name="email"  />
           </div>
           <div class="grouping">
             <label for="phone" class="gray">Telemóvel</label><br />
@@ -50,20 +29,13 @@
               class="formItem"
               type="number"
               name="phone"
-              required
-              pattern="[1-9]{1,9}"
-              onfocus="labelAnimation(this, true)"
-              onfocusout="labelAnimation(this)"
             />
           </div>
           <div class="grouping">
-             <label for="message" class="gray">Mensagem</label><br />
+            <label for="message" class="gray">Mensagem</label><br />
             <textarea
               class="formItem"
               name="message"
-              required
-              onfocus="labelAnimation(this, true)"
-              onfocusout="labelAnimation(this)"
             ></textarea>
           </div>
 
@@ -75,4 +47,8 @@
     </section>
     <div id="bottomBar"></div>
   </div>
+  <script type="module">
+    import { binder } from "../modules/contact.js";
+    binder();
+  </script>
 </div>

@@ -4,7 +4,7 @@ import {
   html,
 } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js";
 
-import { goPage } from "./commons.js";
+import { goPage } from "../modules/commons.js";
 
 export class TopMenu extends LitElement {
 

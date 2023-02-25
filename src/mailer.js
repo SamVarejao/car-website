@@ -31,10 +31,10 @@ const mailer = {
         function (error, info) {
           if (error) {
             console.log(error);
-            reject({ code: 500, message: error });
+            reject(error);
           } else {
             console.log("Email sent: " + info.response);
-            resolve({ code: 200, message: "Mensagem enviada" });
+            resolve("Mensagem enviada");
           }
         }
       );

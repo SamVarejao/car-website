@@ -1,10 +1,5 @@
-export function test() {
-  console.log("test");
-}
 export function goPage(page) {
   let route = page ? page : "home";
-
-  console.log(page)
 
   fetch(`/${route}`)
     .then(function (res) {
@@ -21,25 +16,37 @@ export function goPage(page) {
     });
 }
 function _appendContent(html, isContent) {
+  const parser = new DOMParser();
+
   if (isContent) {
     try {
       document.querySelector("#content").remove();
     } catch (err) {}
-  
+
+    //append content
     const container = document.querySelector("#contentContainer");
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(html, "text/html");
-    let content = doc.querySelector("#content");
-  
+    const doc = parser.parseFromString(html, "text/html");
+    const content = doc.querySelector("#content");
     container.appendChild(content);
+
+    //append script
+    const script = document.querySelector("#content > script");
+    if(script){
+      const string = script.innerHTML;
+      script.remove();
+      const newScript = document.createElement("script");
+      newScript.type = 'module';
+      newScript.innerHTML = string;
+      content.appendChild(newScript);
+    }
+
   } else {
+    //append bottom bar
     const container = document.querySelector("#bottomBar");
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(html, "text/html");
-    let content = doc.querySelector("#content > div");
+    const doc = parser.parseFromString(html, "text/html");
+    const content = doc.querySelector("#content > div");
     container.appendChild(content);
   }
-
 }
 function _getBottomBar() {
   fetch(`/bottomBar`)
@@ -53,17 +60,3 @@ function _getBottomBar() {
       console.warn("Something went wrong.", err);
     });
 }
-/*
-function _appendContent(html) {
-  try {
-    document.querySelector("#content").remove();
-  } catch (err) {}
-
-  const container = document.querySelector("#contentContainer");
-  var parser = new DOMParser();
-  var doc = parser.parseFromString(html, "text/html");
-  let content = doc.querySelector("#content");
-
-  container.appendChild(content);
-}
-*/

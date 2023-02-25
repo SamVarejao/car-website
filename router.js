@@ -43,7 +43,8 @@ router.get("/bottomBar", (req, res) => {
 router.post("/sendMessage", (req, res) => {
   mailer
     .sendContactRequest(...Object.values(req.body))
-    .then((data) => res.status(data.code).send(data.message));
+    .then((data) => res.status(200).send(data))
+    .catch((error) => res.status(500).send(error));
 });
 
 module.exports = router;
