@@ -2,9 +2,11 @@
 :root {
     --main-red: #e3051a;
     --main-gray: #212121;
+    --light-gray : gray;
     --top-menu-height: 100px;
     --angle: -26deg;
     --angle-offset: 26deg;
+    --green: rgb(74, 234, 74);
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
 }
@@ -157,6 +159,9 @@ i {
     border-radius: 50%;
 }
 
+.material-shadow{
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.2);
+}
 /*//////////*/
 
 /*COLORING*/
@@ -192,6 +197,22 @@ p.gray,
 label.gray,
 i.gray {
     color: var(--main-gray);
+}
+
+h1.light-gray,
+h2.light-gray,
+p.light-gray,
+label.light-gray,
+i.light-gray {
+    color: var(--light-gray);
+}
+
+h1.green,
+h2.green,
+p.green,
+label.green,
+i.green {
+    color: rgb(24 184 30);
 }
 
 section.gray,

@@ -41,10 +41,33 @@ router.get("/bottomBar", (req, res) => {
 });
 
 router.post("/sendMessage", (req, res) => {
-  mailer
-    .sendContactRequest(...Object.values(req.body))
-    .then((data) => res.status(200).send(data))
-    .catch((error) => res.status(500).send(error));
+  let messages = [];
+  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  if (
+    req.body.firstName === "" ||
+    req.body.lastName === "" ||
+    req.body.email === "" ||
+    req.body.phone === "" ||
+    req.body.message === ""
+  ) {
+    messages.push("All fileds must be filled");
+  }
+  if (!emailRegex.test(req.body.email)) {
+    messages.push("Invalid email");
+  }
+  if (/[^0-9]/.test(req.body.phone) || req.body.phone.length !== 9) {
+    messages.push("Invalid phone number");
+  }
+
+  if (messages.length !== 0) {
+    res.status(406).send(messages);
+  } else {
+    mailer
+      .sendContactRequest(...Object.values(req.body))
+      .then((data) => res.status(200).send(data))
+      .catch((error) => res.status(500).send(error));
+  }
 });
 
 module.exports = router;

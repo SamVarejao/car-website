@@ -29,6 +29,8 @@ textarea {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    display: block;
+    margin-left: auto;
 }
 
 .form-layout textarea {
@@ -47,9 +49,14 @@ textarea:focus {
     outline: none;
 }
 
-.form-layout>div,
-form {
+.form-layout>div {
     width: 50%;
+    position: relative;
+}
+
+.form-layout form {
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .form-layout .grouping {
@@ -57,7 +64,7 @@ form {
 }
 
 .form-layout input[type=button] {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .form-layout .grouping:last-child {
@@ -80,10 +87,78 @@ form {
     z-index: -1;
 }
 
+.form-error {
+    position: relative;
+    overflow: visible;
+}
+
+.form-error::after {
+    content: attr(data-error);
+    display: block;
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    bottom: -14px;
+    padding: 0 10px;
+    font-size: 0.6em;
+    font-weight: bold;
+    color: red;
+}
+
 .top-label {
     top: 0px !important;
     font-size: 0.9em !important;
-    color: var(--main-red) !important;
+    color: var(--main-gray) !important;
+}
+
+.notification{
+    height: 30px;
+    display: none;
+    background-color: rgb(203 255 203);
+    padding: 10px;
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.3s ease;
+}
+.notification > *{
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.notification > .icon{
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    background-size: 100%;
+    border-radius: 50%;
+    background-image: url('./assets/green-checkmark-icon.svg');
+}
+.notification > .text{
+    color: var(--green);
+}
+.notification.error{
+    background-color: rgb(255 203 203);
+}
+.notification.error > .text{
+    color: var(--main-red);
+}
+.notification.error > .icon{
+    background-image: url('./assets/close-red-icon.svg');
+} 
+
+@keyframes notificationUP {
+    from {
+        bottom: 0;
+        opacity: 0;
+        display: block;
+    }
+    to {
+        bottom: calc(100% - 110px);
+        opacity: 1;
+        display: block;
+    }
 }
 
 @keyframes labelUpKF {
