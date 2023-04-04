@@ -2,9 +2,8 @@
     width: 100%;
     box-sizing: border-box;
     display: flex;
-    gap: 30px;
+    gap: 80px;
 }
-
 .form-layout input[type=text],
 input[type=number],
 input[type=email],
@@ -19,7 +18,6 @@ textarea {
     border-radius: 0;
     background-color: #ffadad00;
 }
-
 .form-layout input[type=button] {
     height: 40px;
     width: 100px;
@@ -32,53 +30,42 @@ textarea {
     display: block;
     margin-left: auto;
 }
-
 .form-layout textarea {
     resize: none;
     height: 130px;
 }
-
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
 input,
 textarea:focus {
     outline: none;
 }
-
 .form-layout>div {
     width: 50%;
     position: relative;
 }
-
 .form-layout form {
     opacity: 1;
     transition: opacity 0.3s ease;
 }
-
 .form-layout .grouping {
     margin-top: 10px;
 }
-
 .form-layout input[type=button] {
     margin-top: 30px;
 }
-
 .form-layout .grouping:last-child {
     margin-top: 0px;
 }
-
 .form-layout .grouping.flex {
     gap: 20px;
 }
-
 .form-layout .grouping.flex>div {
     width: 50%;
 }
-
 .form-layout label {
     position: relative;
     top: 30px;
@@ -86,12 +73,10 @@ textarea:focus {
     margin-left: 5px;
     z-index: -1;
 }
-
 .form-error {
     position: relative;
     overflow: visible;
 }
-
 .form-error::after {
     content: attr(data-error);
     display: block;
@@ -178,7 +163,7 @@ textarea:focus {
     from {
         top: 0px;
         font-size: 0.9em;
-        color: var(--main-red);
+        color: var(--light-gray);
     }
 
     to {
@@ -186,4 +171,25 @@ textarea:focus {
         font-size: 1em;
         color: var(--main-gray);
     }
+}
+
+.map{
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.location-info{
+    margin-top: 20px;
+}
+.location-row{
+    margin-top: 10px;
+    display: flex;
+}
+.location-row > div{
+    margin-left: 20px;
+}
+.icon-holder{
+    width: 20px;
+    display: flex;
 }
