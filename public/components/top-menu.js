@@ -170,7 +170,7 @@ export class TopMenu extends LitElement {
             Stock
           </p>
           <p @click=${() => goPage("contact")} class="button">
-            Contacto
+            Contactos
           </p>
         </header>
       </div>

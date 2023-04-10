@@ -2,7 +2,7 @@
 :root {
     --main-red: #e3051a;
     --main-gray: #212121;
-    --light-gray : gray;
+    --light-gray: gray;
     --top-menu-height: 100px;
     --angle: -26deg;
     --angle-offset: 26deg;
@@ -31,7 +31,8 @@ body {
 }
 
 section {
-    min-height: 100%;
+    min-height: 600px;
+    /*100%*/
     max-width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -66,6 +67,61 @@ i {
     flex-direction: column;
     position: relative;
     z-index: 0;
+}
+
+#loading {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 1;
+    display: flex;
+    /*opacity: 0;*/
+}
+
+#loading .ball-holder {
+    display: grid;
+    margin: auto;
+    height: 30px;
+    width: fit-content;
+    grid-template-columns: 30px 30px 30px;
+    gap: 5px;
+}
+
+#loading .ball {
+    background-color: var(--main-red);
+    border-radius: 50%;
+    height: 0px;
+    width: 0px;
+    margin: auto;
+    animation: loading 1s infinite cubic-bezier(0.9, 0.15, 0.15, 0.9);
+}
+#loading .ball:first-child {
+    animation-delay: 0.33s;
+}
+#loading .ball:nth-child(2n) {
+    animation-delay: 0.66s;
+}
+#loading .ball:last-child {
+    animation-delay: 0.99s;
+}
+
+@keyframes loading {
+    0% {
+        height: 0px;
+        width: 0px
+    }
+    50%{
+        height: 20px;
+        width: 20px
+    }
+    100% {
+        height: 0px;
+        width: 0px
+    }
 }
 
 .side-menu-holder {
@@ -159,9 +215,10 @@ i {
     border-radius: 50%;
 }
 
-.material-shadow{
+.material-shadow {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.2);
 }
+
 /*//////////*/
 
 /*COLORING*/
@@ -207,6 +264,12 @@ i.light-gray {
     color: var(--light-gray);
 }
 
+section.light-gray,
+div.light-gray {
+    background-color:  var(--light-gray);
+}
+
+
 h1.green,
 h2.green,
 p.green,
@@ -237,13 +300,15 @@ h2 {
     margin-bottom: auto;
 }
 
-p, label {
+p,
+label {
     font-size: 1em;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-input, textarea{
+input,
+textarea {
     font-size: 0.9em;
     margin-top: auto;
     margin-bottom: auto;
@@ -395,11 +460,13 @@ p.small {
 .overflow-hidden {
     overflow: hidden;
 }
+
 /*//////////*/
 .vertical-auto {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
 /*IMAGES*/
 .gear-background {
     background-image: url('./assets/import_background_2.jpg');
@@ -418,6 +485,7 @@ p.small {
     padding-top: 100px;
     box-sizing: border-box;
 }
+
 /*//////////*/
 @media only screen and (max-width: 1200px) {
     .side-menu-holder {

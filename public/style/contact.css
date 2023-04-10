@@ -150,12 +150,13 @@ textarea:focus {
     from {
         top: 30px;
         font-size: 1em;
+        color: var(--light-gray);
     }
 
     to {
         top: 0px;
         font-size: 0.9em;
-        color: var(--main-red)
+        color: var(--main-gray);
     }
 }
 

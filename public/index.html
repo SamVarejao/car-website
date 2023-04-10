@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style/main.css" />
     <script type="module" src="main.js"></script>
     <script src="https://kit.fontawesome.com/5cf1fecdeb.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Motors V8</title>
   </head>
   <body>
     <top-menu id="topMenu"></top-menu>
@@ -15,7 +15,47 @@
       <div class="side-menu-holder">
         <side-menu id="sideMenu"></side-menu>
       </div>
-      <div id="contentContainer"></div>
+      <div id="contentContainer">
+        <div id="content" class="home-background overflow-hidden">
+          <link rel="stylesheet" href="./style/home.css" />
+          <div class="grow vertical-auto">
+            <section class="content-center">
+              <div>
+                <h1 class="red text-shadow center-text">SLIDER DE SERVIÇOS</h1>
+                <h2 class="red text-shadow center-text margin-top-60">
+                  VEÍCULOS E COLECIONÁVEIS AMERICANOS
+                </h2>
+                <a class="contact-button align-horizontal margin-top-20">
+                  <i class="fa-solid fa-phone"></i>
+                  <p>222222222</p>
+                </a>
+              </div>
+            </section>
+            <section class="white">
+              <h2 class="gray center-text margin-top-30">
+                ESPECIALISTAS EM VEÍCULO AMERICANOS <br />
+                E COLECIONÁVEIS NA xx cidade xx
+              </h2>
+              <div class="home-sections-layout">
+                <section-button page="import" label="IMPORTAÇÃO"><i slot="icon" class="fa fa-angle-right white skew-offset margin-auto"></i></section-button>
+                <section-button page="restoration" label="RESTAURAÇÃO"><i slot="icon" class="fa fa-angle-right white skew-offset margin-auto"></i></section-button>
+                <section-button page="maintenance" label="MANUTENÇÃO"><i slot="icon" class="fa fa-angle-right white skew-offset margin-auto"></i></section-button>
+                <section-button page="achievement" label="CONQUISTAS"><i slot="icon" class="fa fa-angle-right white skew-offset margin-auto"></i></section-button> 
+                <section-button page="advertisement" label="STOCK"><i slot="icon" class="fa fa-angle-right white skew-offset margin-auto"></i></section-button>
+                <section-button page="contact" label="CONTACTO"><i slot="icon" class="fa fa-angle-right white skew-offset margin-auto"></i></section-button>
+              </div>
+            </section>
+            <div id="bottomBar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="loading" style="display: none;">
+      <div class="ball-holder">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
     </div>
   </body>
 </html>

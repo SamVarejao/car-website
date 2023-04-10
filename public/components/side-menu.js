@@ -101,7 +101,7 @@ export class SideMenu extends LitElement {
               Stock
             </div>
             <div @click=${() => goPage("contact")} class="button">
-              Contacto
+              Contactos
             </div>
           </div>
         </div>
